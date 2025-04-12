@@ -4,49 +4,131 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Qualcosa di Nuovo Sta Arrivando...</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      text-align: center;
-      padding: 50px;
-    }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background-color: #fff;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-    .logo {
-      max-width: 200px;
-      margin: 0 15px 30px;
-    }
-    .logo-wrapper {
+      font-family: 'Open Sans', sans-serif;
+      background: url('https://images.unsplash.com/photo-1587614382346-4ec1f4f39753?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #e0e0e0;
       display: flex;
       justify-content: center;
       align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      backdrop-filter: brightness(0.7);
+      animation: fadeInBody 2s ease-in-out;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .container {
+      max-width: 750px;
+      background: rgba(18, 18, 18, 0.92);
+      border-radius: 20px;
+      padding: 60px 50px;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.7);
+      text-align: center;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      transform: perspective(1000px) rotateX(1deg);
+      animation: slideUp 1.5s ease-out;
+    }
+
+    @keyframes slideUp {
+      0% {
+        transform: translateY(80px) perspective(1000px) rotateX(5deg);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0) perspective(1000px) rotateX(0deg);
+        opacity: 1;
+      }
+    }
+
+    .logo-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 50px;
       flex-wrap: wrap;
+      filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.3));
     }
+
+    .logo {
+      max-width: 160px;
+      filter: brightness(0.95);
+      transition: transform 0.3s ease-in-out, filter 0.3s;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1) drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
+    }
+
     h1 {
-      font-size: 2em;
-      margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5em;
+      color: #d4af37;
+      margin-bottom: 25px;
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
     }
-    p {
-      font-size: 1.1em;
+
+    .typing-text {
+      font-size: 1.3em;
+      color: #eee;
       margin-bottom: 30px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #d4af37;
+      width: 0;
+      animation: typing 4s steps(60, end) forwards, blink 0.75s step-end infinite;
     }
-    .footer {
-      margin-top: 30px;
-      font-size: 0.9em;
-      color: #777;
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
     }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    p {
+      font-size: 1.15em;
+      color: #ddd;
+      margin-bottom: 30px;
+      line-height: 1.8;
+    }
+
     iframe {
       width: 100%;
       height: 500px;
       border: none;
+      border-radius: 10px;
+      margin-top: 30px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s;
+    }
+
+    iframe:hover {
+      transform: scale(1.01);
+    }
+
+    .footer {
+      margin-top: 35px;
+      font-size: 0.95em;
+      color: #aaa;
+      font-style: italic;
     }
   </style>
 </head>
@@ -57,17 +139,18 @@
       <img src="logo-stosa.png" alt="Logo Stosa Cucine" class="logo">
     </div>
     <h1>Sta per accadere qualcosa di speciale...</h1>
+    <div class="typing-text">Materiali pregiati, atmosfere suggestive, design che emoziona.</div>
     <p>
-      Un evento unico sta prendendo forma nel nostro showroom. 
-      Nuove ispirazioni per la tua cucina, un design che lascia il segno.
+      Stiamo preparando un evento esclusivo nel nostro showroom.<br>
+      Un’esperienza unica tra design, materiali pregiati e nuove ispirazioni per la tua casa.
     </p>
     <p>
-      Vuoi essere tra i primi a scoprire di cosa si tratta?
-      Lasciaci il tuo contatto e riceverai un invito esclusivo.
+      Vuoi essere tra i primi a scoprirlo?<br>
+      Lasciaci il tuo contatto per ricevere un invito personale.
     </p>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe.../viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Caricamento…</iframe>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe.../viewform?embedded=true">Caricamento…</iframe>
     <div class="footer">
-      * Posti limitati. Sarà un evento a porte chiuse per veri appassionati di arredamento.
+      * Posti limitati. Evento riservato agli amanti del design e dell’arredamento d’eccellenza.
     </div>
   </div>
 </body>
