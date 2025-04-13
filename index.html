@@ -86,33 +86,18 @@
     }
 
     .typing-wrapper {
-      display: block;
-      max-width: 100%;
+      display: inline-block;
       overflow: hidden;
       border-right: 2px solid #d4af37;
-      animation: typing 4s steps(60, end) forwards, blink 0.75s step-end infinite;
-      width: 0;
-      margin: 0 auto 25px;
       white-space: nowrap;
+      max-width: 100%;
+      animation: typing 4s steps(60, end) forwards, blink 0.75s step-end infinite;
     }
 
     .typing-text {
+      display: inline;
       font-size: 1.1em;
       color: #eee;
-      white-space: nowrap;
-    }
-
-    @media (max-width: 600px) {
-      .typing-text {
-        font-size: 1em;
-        white-space: normal;
-        display: inline-block;
-      }
-      .typing-wrapper {
-        white-space: normal;
-        word-break: break-word;
-        overflow-wrap: break-word;
-      }
     }
 
     @keyframes typing {
@@ -122,6 +107,22 @@
 
     @keyframes blink {
       50% { border-color: transparent; }
+    }
+
+    @media (max-width: 600px) {
+      .typing-wrapper {
+        white-space: normal;
+        overflow: visible;
+        display: block;
+        width: auto;
+        animation: none;
+        border-right: none;
+      }
+
+      .typing-text {
+        display: block;
+        animation: none;
+      }
     }
 
     p {
