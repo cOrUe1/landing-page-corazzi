@@ -90,11 +90,20 @@
       color: #eee;
       margin-bottom: 25px;
       border-right: 2px solid #d4af37;
-      white-space: nowrap;
       overflow: hidden;
       display: inline-block;
       animation: typing 4s steps(60, end) forwards, blink 0.75s step-end infinite;
-      max-width: 100%;
+      width: 0;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 600px) {
+      .typing-text {
+        font-size: 1em;
+        white-space: normal;
+        display: block;
+        word-wrap: break-word;
+      }
     }
 
     @keyframes typing {
@@ -132,29 +141,6 @@
       font-size: 0.9em;
       color: #aaa;
       font-style: italic;
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        padding: 30px 15px;
-      }
-      h1 {
-        font-size: 1.6em;
-      }
-      .typing-text {
-        font-size: 1em;
-        white-space: normal;
-        word-break: break-word;
-      }
-      p {
-        font-size: 0.95em;
-      }
-      .logo {
-        max-width: 100px;
-      }
-      iframe {
-        height: 350px;
-      }
     }
   </style>
 </head>
