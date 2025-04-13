@@ -85,24 +85,24 @@
       text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
     }
 
+    .typing-wrapper {
+      display: inline-block;
+      max-width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #d4af37;
+      animation: typing 4s steps(60, end) forwards, blink 0.75s step-end infinite;
+    }
+
     .typing-text {
       font-size: 1.1em;
       color: #eee;
-      margin-bottom: 25px;
-      border-right: 2px solid #d4af37;
-      overflow: hidden;
-      display: inline-block;
-      animation: typing 4s steps(60, end) forwards, blink 0.75s step-end infinite;
-      width: 0;
-      white-space: nowrap;
+      display: inline;
     }
 
     @media (max-width: 600px) {
       .typing-text {
         font-size: 1em;
-        white-space: normal;
-        display: block;
-        word-wrap: break-word;
       }
     }
 
@@ -151,7 +151,7 @@
       <img src="logo-stosa.png" alt="Logo Stosa Cucine" class="logo">
     </div>
     <h1>Sta per accadere qualcosa di speciale...</h1>
-    <div class="typing-text">Materiali pregiati, atmosfere suggestive, design che emoziona.</div>
+    <div class="typing-wrapper"><span class="typing-text">Materiali pregiati, atmosfere suggestive, design che emoziona.</span></div>
     <p>
       Stiamo preparando un evento esclusivo nel nostro showroom.<br>
       Un’esperienza unica tra design, materiali pregiati e nuove ispirazioni per la tua casa.
