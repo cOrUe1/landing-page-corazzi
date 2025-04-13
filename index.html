@@ -90,11 +90,11 @@
       color: #eee;
       margin-bottom: 25px;
       border-right: 2px solid #d4af37;
-      width: 100%;
-      display: inline-block;
-      white-space: normal;
+      white-space: nowrap;
       overflow: hidden;
+      display: inline-block;
       animation: typing 4s steps(60, end) forwards, blink 0.75s step-end infinite;
+      max-width: 100%;
     }
 
     @keyframes typing {
@@ -143,6 +143,8 @@
       }
       .typing-text {
         font-size: 1em;
+        white-space: normal;
+        word-break: break-word;
       }
       p {
         font-size: 0.95em;
