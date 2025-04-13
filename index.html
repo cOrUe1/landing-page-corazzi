@@ -182,7 +182,55 @@
       Vuoi essere tra i primi a scoprirlo?<br>
       Lasciaci il tuo contatto per ricevere un invito personale.
     </p>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe.../viewform?embedded=true">Caricamento…</iframe>
+    <form id="contact-form">
+      <input type="text" name="nome" placeholder="Nome" required style="margin-bottom:10px; padding:10px; width:100%; border-radius:5px; border:none;">
+      <small style="display:none; color:#ff6b6b; font-size:0.85em; margin-bottom:5px;">Inserisci il nome.</small>
+
+      <input type="text" name="cognome" placeholder="Cognome" required style="margin-bottom:10px; padding:10px; width:100%; border-radius:5px; border:none;">
+      <small style="display:none; color:#ff6b6b; font-size:0.85em; margin-bottom:5px;">Inserisci il cognome.</small>
+
+      <input type="text" name="citta" placeholder="Città" required style="margin-bottom:10px; padding:10px; width:100%; border-radius:5px; border:none;">
+      <small style="display:none; color:#ff6b6b; font-size:0.85em; margin-bottom:5px;">Inserisci la città.</small>
+
+      <input type="email" name="email" placeholder="Email" required style="margin-bottom:10px; padding:10px; width:100%; border-radius:5px; border:none;">
+      <small style="display:none; color:#ff6b6b; font-size:0.85em; margin-bottom:5px;">Inserisci una email valida.</small>
+
+      <input type="tel" name="telefono" placeholder="Numero di Telefono" required style="margin-bottom:10px; padding:10px; width:100%; border-radius:5px; border:none;">
+      <small style="display:none; color:#ff6b6b; font-size:0.85em; margin-bottom:5px;">Inserisci un numero di telefono.</small>
+
+      <label style="display:block; font-size: 0.9em; color: #ccc; margin-bottom: 15px;">
+        <input type="checkbox" name="privacy" required>
+        Acconsento al trattamento dei miei dati personali per finalità informative e di marketing.<br>
+        <span style="font-size:0.8em; color:#999">(Tranquillo, niente spam: siamo gente d’arredamento, non di fastidio!)</span>
+      </label> </label>
+      <button type="submit" style="background-color:#b01016; color:white; padding:12px 25px; border:none; border-radius:5px; font-size:1em; cursor:pointer; transition: background 0.3s;">Invia</button>
+    </form>
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbznFzed-z574at8wn6YMjRYS5ba6yPqPuuoUYJz0QfB_p8lhMdeZFyl6bitysVmbtxQ/exec';
+      const form = document.getElementById('contact-form');
+      const inputs = form.querySelectorAll('input[required]');
+      const errors = form.querySelectorAll('small');
+
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        let valid = true;
+        inputs.forEach((input, index) => {
+          if (!input.checkValidity()) {
+            errors[index].style.display = 'block';
+            valid = false;
+          } else {
+            errors[index].style.display = 'none';
+          }
+        });
+
+        if (!valid) return;
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then(response => alert("Grazie! Il tuo contatto è stato inviato."))
+          .catch(error => alert("Si è verificato un errore. Riprova."));
+      });
+    </script>
     <div class="footer">
       * Posti limitati. Evento riservato agli amanti del design e dell’arredamento d’eccellenza.
     </div>
